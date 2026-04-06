@@ -14,9 +14,9 @@ This repository contains two versions of a Task Manager application, built using
 |---------------|--------------------------|--------------------------|---------|
 | **Speed**         | Generated full layout and logic in **9 minutes** from one prompt. | Took **42 minutes** to build file-by-file with manual structure. | **Vibe faster** |
 | **Control**       | Tool decided on component structure (single large file). I couldn't choose the hook pattern. | I decided every function signature and component split. Accepted **24/32** suggestions. | **Pair better** |
-| **Code Quality**  | Generated a single file with **238 lines** of code. Difficult for teammates to navigate. | Clean, modular components. Longest component was only **64 lines**. | **Pair better** |
-| **Explainability**| Generated a complex `useTaskReducer` hook I had to read 3 times to fully understand. | I wrote the logic myself; I can explain every decision in `filteredTasks` (App.jsx:L24). | **Pair better** |
-| **Editability**   | Adding a due date feature took **22 mins** because filter logic was coupled with UI. | Adding a due date took only **7 mins** due to clean separation of concerns. | **Pair better** |
+| **Code Quality**  | Generated a single file with **151 lines** of code. Difficult for teammates to navigate. | Clean, modular components. Longest component was only **35 lines**. | **Pair better** |
+| **Explainability**| Generated a complex UI/Logic mix that I had to read carefully to fully understand. | I wrote the logic myself; I can explain every decision in `filteredTasks` (App.jsx:L9). | **Pair better** |
+| **Editability**   | Adding a due date feature took **22 mins** because filter logic was coupled with UI. | Adding a due date took only **7 mins** due to clean separation in `useTasks.js`. | **Pair better** |
 
 ---
 
@@ -32,6 +32,6 @@ Any code that is going into production or will be maintained by a team. It's the
 
 ## Technical Details
 - **Vibe Tool Used:** v0 / Lovable
-- **Pair Tool Used:** Cursor with GitHub Copilot
-- **Total Files (Vibe):** 1 main file
+- **Pair Tool Used:** Antigravity (AI Coding Assistant)
+- **Total Files (Vibe):** 1 main file (page.tsx)
 - **Total Files (Pair):** 6 files (Components + Hooks)
