@@ -3,6 +3,8 @@ import { useTasks } from "./hooks/useTasks";
 import TaskInput from "./components/TaskInput";
 import TaskList from "./components/TaskList";
 import Filter from "./components/Filter";
+import ProgressIndicator from "./components/ProgressIndicator";
+import { Brain } from "lucide-react";
 
 function App() {
   const { tasks, addTask, toggleTask, deleteTask } = useTasks();
@@ -17,9 +19,18 @@ function App() {
   return (
     <main>
       <header>
-        <h1>Momentum</h1>
-        <p className="subtitle">Modular Power. Minimalist View.</p>
+        <div className="header-top">
+          <div>
+            <h1>Momentum</h1>
+            <p className="subtitle">Modular Power. Minimalist View.</p>
+          </div>
+          <div className="brand-icon">
+            <Brain size={24} className="brain-pulse" />
+          </div>
+        </div>
       </header>
+
+      <ProgressIndicator tasks={tasks} />
 
       <TaskInput onAdd={addTask} />
       <Filter activeFilter={filter} setFilter={setFilter} />

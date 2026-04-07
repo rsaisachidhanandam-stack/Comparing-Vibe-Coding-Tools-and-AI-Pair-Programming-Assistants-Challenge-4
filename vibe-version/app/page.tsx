@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Plus, Check, Circle, Trash2, Filter, LayoutCircleTable, ListChecks, ListTodo } from "lucide-react"
+import { Plus, Check, Circle, Trash2, Filter, LayoutCircleTable, ListChecks, ListTodo, Brain } from "lucide-react"
 
 export default function VibeTaskManager() {
   const [tasks, setTasks] = useState<{ id: string; text: string; completed: boolean }[]>([])
@@ -52,12 +52,34 @@ export default function VibeTaskManager() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white selection:bg-purple-500/30">
       <div className="max-w-xl mx-auto px-6 py-20">
-        <header className="mb-12">
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">
-            Task Pulse
-          </h1>
-          <p className="text-gray-400 text-sm font-medium">Keep your momentum alive.</p>
+        <header className="mb-12 flex items-center justify-between">
+          <div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-2">
+              Task Pulse
+            </h1>
+            <p className="text-gray-400 text-sm font-medium">Keep your momentum alive.</p>
+          </div>
+          <div className="bg-[#161616] p-3 rounded-2xl border border-white/5 shadow-xl shadow-purple-500/5">
+            <Brain className="w-6 h-6 text-purple-400 animate-pulse" />
+          </div>
         </header>
+
+        {tasks.length > 0 && (
+          <div className="mb-8">
+            <div className="flex justify-between items-end mb-2">
+              <span className="text-[10px] uppercase tracking-widest font-bold text-gray-500">Progress</span>
+              <span className="text-[10px] uppercase tracking-widest font-bold text-purple-400">
+                {Math.round((tasks.filter(t => t.completed).length / tasks.length) * 100)}%
+              </span>
+            </div>
+            <div className="h-1.5 w-full bg-[#161616] rounded-full overflow-hidden border border-white/5">
+              <div 
+                className="h-full bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-500 ease-out" 
+                style={{ width: `${(tasks.filter(t => t.completed).length / tasks.length) * 100}%` }}
+              />
+            </div>
+          </div>
+        )}
 
         <form onSubmit={addTask} className="relative group mb-8">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-20 group-focus-within:opacity-40 transition duration-500" />
