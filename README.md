@@ -15,8 +15,9 @@ This repository contains two versions of a Task Manager application, built using
 | **Speed**         | Generated full layout and logic in **9 minutes** from one prompt. | Took **42 minutes** to build file-by-file with manual structure. | **Vibe faster** |
 | **Control**       | Tool decided on component structure (single large file). I couldn't choose the hook pattern. | I decided every function signature and component split. Accepted **24/32** suggestions. | **Pair better** |
 | **Code Quality**  | Generated a single file with **151 lines** of code. Difficult for teammates to navigate. | Clean, modular components. Longest component was only **35 lines**. | **Pair better** |
-| **Explainability**| Generated a complex UI/Logic mix that I had to read carefully to fully understand. | I wrote the logic myself; I can explain every decision in `filteredTasks` (App.jsx:L9). | **Pair better** |
-| **Editability**   | Adding a due date feature took **22 mins** because filter logic was coupled with UI. | Adding a due date took only **7 mins** due to clean separation in `useTasks.js`. | **Pair better** |
+| **Explainability**| Generated a complex UI/Logic mix. | I wrote the logic myself. | **Pair better** |
+| **Editability**   | Adding a due date took **22 mins**. | Adding a due date took only **7 mins**. | **Pair better** |
+| **New Feature: Progress Bar** | Added via prompt; easy UI hit but mixing code. | Modularly added `ProgressIndicator.jsx`; clean logic separation. | **Pair better** |
 
 ---
 
